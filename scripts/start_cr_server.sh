@@ -26,7 +26,9 @@ function download_cr {
 
 
 function setup_cr {
-    
+
+    echo "Initializing Blender config directory..."
+    /usr/local/blender/blender -b -noaudio --python-expr "import bpy; print('bpy loaded'); bpy.ops.wm.read_homefile(); bpy.ops.wm.save_userpref(); print('Prefs saved')"
     # check to see if the local dev path is set, don't install the
     # addon from discovery if so
     if [ $use_local_cr = $TRUE ];
