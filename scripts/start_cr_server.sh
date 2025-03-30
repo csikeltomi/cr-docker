@@ -112,7 +112,7 @@ function start_server {
         -ct "$token" \
         --override-machine-uuid "$machine_uuid" \
         -ak "$secret"
-
+        --host "0.0.0.0"
     fi 
 
     # start blender with the proper arguments to start a headless server	
