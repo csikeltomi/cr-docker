@@ -19,7 +19,7 @@ function download_cr {
         echo "About to download the $cr_version version of the addon."
 
         # ... use the token for downloading the addon package useing the dedicated 'latest' URL
-        curl -# -H "Authorization: Bearer $token" -X GET https://discovery.crowd-render.com/api/download/addon/$cr_version -o $crowdrender.zip
+        curl -# -H "Authorization: Bearer $token" -X GET https://discovery.crowd-render.com/api/download/addon/$cr_version -o crowdrender.zip
 
     fi
 }
@@ -54,14 +54,14 @@ bpy.ops.wm.save_userpref()"
         echo "found already existing $cr_version.zip"
         # install addon into blender
         echo "installing crowdrender addon......."
-        /usr/local/blender/blender -b -noaudio --python ./install_addon.py -i "/CR/$cr_version.zip"
+        /usr/local/blender/blender -b -noaudio --python ./install_addon.py -i "/CR/crowdrender.zip"
 
     else
 
         download_cr
 
         echo "installing crowdrender addon from /CR/$cr_version.zip"
-        /usr/local/blender/blender -b -noaudio --python ./install_addon.py -i "/CR/$cr_version.zip"
+        /usr/local/blender/blender -b -noaudio --python ./install_addon.py -i "/CR/crowdrender.zip"
     fi
 
     
