@@ -45,9 +45,9 @@ RUN \
 # Blender variables used for specifying the blender version
 
 ARG BLENDER_OS="linux-x64"
-ARG BL_VERSION_SHORT="4.0"
-ARG BL_VERSION_FULL="4.0.1"
-ARG BL_DL_ROOT_URL="https://mirrors.ocf.berkeley.edu/blender/release/"
+ARG BL_VERSION_SHORT="3.6"
+ARG BL_VERSION_FULL="3.6.21"
+ARG BL_DL_ROOT_URL="https://download.blender.org/release"
 ARG BLENDER_DL_URL=${BL_DL_ROOT_URL}/Blender${BL_VERSION_SHORT}/blender-${BL_VERSION_FULL}-${BLENDER_OS}.tar.xz
 
 
