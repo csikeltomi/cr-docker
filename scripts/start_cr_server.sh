@@ -19,7 +19,7 @@ function download_cr {
         echo "About to download the $cr_version version of the addon."
 
         # ... use the token for downloading the addon package useing the dedicated 'latest' URL
-        curl -# -H "Authorization: Bearer $token" -X GET https://discovery.crowd-render.com/api/download/addon/$cr_version -o $cr_version.zip
+        curl -# -H "Authorization: Bearer $token" -X GET https://discovery.crowd-render.com/api/download/addon/$cr_version -o $crowdrender.zip
 
     fi
 }
