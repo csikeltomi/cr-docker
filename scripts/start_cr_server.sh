@@ -86,7 +86,13 @@ function start_server {
     fi
 
     echo "Checking installed CrowdRender addon version..."
-    /usr/local/blender/blender -b -noaudio --python-expr "import addon_utils; addon_utils.enable('crowdrender'); import importlib; import cr; importlib.reload(cr); print(f'CrowdRender version: {cr.version.__version__}')"
+    /usr/local/blender/blender -b -noaudio --python-expr \
+"import addon_utils; addon_utils.enable('crowdrender'); \
+modules = addon_utils.modules(); \
+for m in modules: \
+    if m.__name__ == 'crowdrender': \
+        print(f'CrowdRender version: {getattr(m, 'bl_info', {}).get('version', 'unknown')}')"
+
 
     # test if the path to the addon actually exists. 
     if test -f "$CR_ADDON_ROOT/cr_source/core/serv_int_start.py"; then
