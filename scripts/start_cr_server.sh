@@ -85,6 +85,9 @@ function start_server {
         echo "OOPS! Couldn't find Crowdrender at $CR_ADDON_ROOT"
     fi
 
+    echo "Checking installed CrowdRender addon version..."
+    /usr/local/blender/blender -b -noaudio --python-expr "import addon_utils; addon_utils.enable('crowdrender'); import importlib; import cr; importlib.reload(cr); print(f'CrowdRender version: {cr.version.__version__}')"
+
     # test if the path to the addon actually exists. 
     if test -f "$CR_ADDON_ROOT/cr_source/core/serv_int_start.py"; then
         START_PY_FILE="$CR_ADDON_ROOT/cr_source/core/serv_int_start.py"
