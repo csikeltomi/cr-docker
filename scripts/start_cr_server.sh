@@ -125,7 +125,7 @@ function start_server {
     # start blender with the proper arguments to start a headless server	
     echo "starting crowdrender server using version $cr_version ..."
     echo "Running script to start server $START_PY_FILE"
-    /usr/local/blender/blender -b -noaudio --python $START_PY_FILE -- -t "server_int_proc" -p "$persistent" -ct "$token" --override-machine-uuid "$machine_uuid" -ak "$secret" --host 0.0.0.0
+    /usr/local/blender/blender -b -noaudio --python $START_PY_FILE -- -t "server_int_proc" -p "$persistent" -ct "$token" --override-machine-uuid "$machine_uuid" -ak "$secret" --host 0.0.0.0 --port 9669
     
 }
 
